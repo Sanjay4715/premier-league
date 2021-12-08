@@ -13,8 +13,8 @@ const Home = () => {
         "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json"
       )
       .then((res) => {
-        console.log(res.data.name);
-        console.log(res.data.clubs);
+        // console.log(res.data.name);
+        // console.log(res.data.clubs);
         setClubs(res.data.clubs);
       })
       .catch((error) => console.log(error));
