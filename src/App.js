@@ -1,7 +1,8 @@
 import React from "react";
+import RoutingIndex from "./Routing/RoutingIndex";
 
 const App = (props) => {
-  return <div>React App from scratch 2</div>;
+  return <RoutingIndex />;
 };
 
 export default App;
