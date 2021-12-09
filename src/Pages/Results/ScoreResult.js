@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import moment from "moment";
 
 import { clubs } from "../../Assets/Data/clubs";
+import { getClubDetails } from "../../Component/GetClubDetails/GetClubDetails";
 
 const StyledTeam = styled.div({
   color: "#37003c",
@@ -23,10 +24,6 @@ const StyledScore = styled.div({
 });
 
 const ScoreResult = ({ data }) => {
-  const getClubDetails = (clubName) => {
-    return clubs.find((data) => data.name === clubName.replace(" FC", ""));
-  };
-
   return (
     <div>
       <h2 style={{ fontFamily: "Gilroy-bold" }}>

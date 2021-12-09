@@ -1,140 +1,61 @@
 import React, { useEffect, useState } from "react";
-import Navigation from "../../Component/Navigation/Navigation";
-import { Table } from "antd";
-import styled from "@emotion/styled";
 import axios from "axios";
 import moment from "moment";
-import { getClubDetails } from "../../Component/GetClubDetails/GetClubDetails";
 
-const StyledTable = styled(Table)({
-  ".green": { backgroundColor: "#66b266" },
-  ".red": { backgroundColor: "#ff4c4c" },
-  ".ant-table-tbody>tr.ant-table-row-level-0:hover>td": {
-    background: "unset",
-  },
-});
-
-const StyledColumnTitle = styled.b({
-  fontFamily: "Gilroy-bold",
-  color: "#37003c",
-});
-
-const StyledForm = styled.div({
-  width: 30,
-  height: 30,
-  borderRadius: "50%",
-  padding: 10,
-  color: "#fff",
-  fontSize: 14,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  marginRight: 5,
-  "&.win": {
-    backgroundColor: "green",
-  },
-  "&.lose": {
-    backgroundColor: "red",
-  },
-  "&.draw": {
-    backgroundColor: "grey",
-  },
-});
-
-const StyledText = styled.div({
-  fontSize: 16,
-  fontFamily: "Gilroy-bold",
-});
+import CustomSelect from "../../Component/CustomSelect/CustomSelect";
+import CustomTable from "./CustomTable";
+import Navigation from "../../Component/Navigation/Navigation";
 
 const SeasonTable = () => {
   const [completeMatches, setCompleteMatches] = useState([]);
   const [dataSource, setDataSource] = useState([]);
+  const [pointsOrder, setPointsOrder] = useState("Descending");
+  const [asecendingSource, setAscendingSource] = useState([]);
 
   const columns = [
     {
-      title: <StyledColumnTitle>Rank</StyledColumnTitle>,
-      width: 100,
-      render: (item, record, index) => <StyledText>{index + 1}</StyledText>,
+      columnName: "Rank",
+      width: 20,
     },
     {
-      title: <StyledColumnTitle>Club Name</StyledColumnTitle>,
-      dataIndex: "name",
-      render: (name) => (
-        <div style={{ display: "flex", alignItems: "center" }}>
-          <div style={{ marginRight: 10 }}>{getClubDetails(name).logo}</div>
-          <StyledText>{name}</StyledText>
-        </div>
-      ),
+      columnName: "Club Name",
+      width: 150,
     },
     {
-      title: <StyledColumnTitle>Played</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "matchPlayed",
-      render: (matchedPlayed) => <StyledText>{matchedPlayed}</StyledText>,
+      columnName: "Played",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>Points</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "points",
-      render: (points) => <StyledText>{points}</StyledText>,
+      columnName: "Points",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>Won</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "won",
-      render: (won) => <StyledText>{won}</StyledText>,
+      columnName: "Won",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>Drawn</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "drawn",
-      render: (drawn) => <StyledText>{drawn}</StyledText>,
+      columnName: "Lost",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>Lost</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "lost",
-      render: (lost) => <StyledText>{lost}</StyledText>,
+      columnName: "Draw",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>GF</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "gf",
-      render: (gf) => <StyledText>{gf}</StyledText>,
+      columnName: "GF",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>GA</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "ga",
-      render: (ga) => <StyledText>{ga}</StyledText>,
+      columnName: "GA",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>GD</StyledColumnTitle>,
-      width: 100,
-      dataIndex: "gd",
-      render: (gd) => <StyledText>{gd}</StyledText>,
+      columnName: "GD",
+      width: 70,
     },
     {
-      title: <StyledColumnTitle>Form</StyledColumnTitle>,
+      columnName: "Form",
       width: 200,
-      render: (record) => {
-        return (
-          <div style={{ display: "flex" }}>
-            {record.form.length !== 0 &&
-              record.form.map((data, index) => (
-                <React.Fragment key={index}>
-                  {data === "Win" ? (
-                    <StyledForm className="win">W</StyledForm>
-                  ) : data === "Lose" ? (
-                    <StyledForm className="lose">L</StyledForm>
-                  ) : (
-                    <StyledForm className="draw">D</StyledForm>
-                  )}
-                </React.Fragment>
-              ))}
-          </div>
-        );
-      },
     },
   ];
 
@@ -277,18 +198,61 @@ const SeasonTable = () => {
     }
   };
 
+  const handleOrderPoints = (value) => {
+    setPointsOrder(value);
+    if (value === "Ascending") {
+      setAscendingSource(dataSource.sort(compareAscendingPoints));
+    } else {
+      setDataSource(dataSource.sort(compareDescendingPoints));
+    }
+  };
+
+  const compareAscendingPoints = (a, b) => {
+    const pointA = a.points;
+    const pointB = b.points;
+
+    let comparison = 0;
+    if (pointA > pointB) {
+      comparison = 1;
+    } else {
+      comparison = -1;
+    }
+    return comparison;
+  };
+
+  const compareDescendingPoints = (a, b) => {
+    const pointA = a.points;
+    const pointB = b.points;
+
+    let comparison = 0;
+    if (pointA < pointB) {
+      comparison = 1;
+    } else {
+      comparison = -1;
+    }
+    return comparison;
+  };
+
   return (
     <div>
       <Navigation page="table" />
       <div style={{ padding: 20 }}>
-        <StyledTable
-          dataSource={dataSource}
-          rowKey="name"
+        <div>
+          <div>Sorting By Points</div>
+          <CustomSelect
+            value={pointsOrder}
+            options={[{ name: "Ascending" }, { name: "Descending" }]}
+            setData={handleOrderPoints}
+            placeholder="Select Match Day"
+            style={{ width: 250 }}
+          />
+        </div>
+        <CustomTable
           columns={columns}
-          pagination={false}
-          rowClassName={(item, record, index) =>
-            record < 4 ? "green" : record > dataSource.length - 4 && "red"
+          dataSource={
+            pointsOrder === "Ascending" ? asecendingSource : dataSource
           }
+          pointsOrder={pointsOrder}
         />
       </div>
     </div>
