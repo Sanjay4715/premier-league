@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navigation from "../../Component/Navigation/Navigation";
+import Arsenal from "../../Assets/Logo/Barnsley.svg";
+import { clubs } from "../../Assets/Data/clubs";
 
 const Home = () => {
   const [seasonName, setSeasonName] = useState();
@@ -10,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
-        "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.clubs.json"
+        "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.clubs.json"
       )
       .then((res) => {
         // console.log(res.data.name);
@@ -31,8 +33,10 @@ const Home = () => {
   return (
     <div>
       <Navigation page="home" />
-      {/* <h1>{seasonName}</h1>
-      {clubs && clubs.map((club, index) => <li key={index}>{club.name}</li>)} */}
+      <h1>{seasonName}</h1>
+      <img src={Arsenal} alt="Arsnel" style={{ width: 50, height: 50 }} />
+      {clubs && clubs.map((club, index) => <li key={index}>{club.name}</li>)}
+      {console.log(clubs)}
     </div>
   );
 };
