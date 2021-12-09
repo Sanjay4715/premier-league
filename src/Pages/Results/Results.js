@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+
+import axios from "axios";
 import Navigation from "../../Component/Navigation/Navigation";
 
 const Home = () => {
@@ -19,6 +21,7 @@ const Home = () => {
   return (
     <div>
       <Navigation page="results" />
+      <div style={{ padding: 20 }}></div>
     </div>
   );
 };
