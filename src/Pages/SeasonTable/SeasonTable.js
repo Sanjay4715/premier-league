@@ -253,6 +253,7 @@ const SeasonTable = () => {
             pointsOrder === "Ascending" ? asecendingSource : dataSource
           }
           pointsOrder={pointsOrder}
+          completeMatches={completeMatches}
         />
       </div>
     </div>

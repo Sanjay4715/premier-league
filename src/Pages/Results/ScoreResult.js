@@ -38,7 +38,6 @@ const ScoreResult = ({ data }) => {
           fontSize: 16,
         }}
       >
-        {console.log(data)}
         <StyledTeam>{data.team1}</StyledTeam>
         <div style={{ marginRight: 10 }}>{getClubDetails(data.team1).logo}</div>
         <StyledScore>{data.score.ft[0]}</StyledScore>
