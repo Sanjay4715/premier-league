@@ -1,13 +1,67 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Table, Row, Col } from "antd";
+
 import Navigation from "../../Component/Navigation/Navigation";
-import Arsenal from "../../Assets/Logo/Barnsley.svg";
 import { clubs } from "../../Assets/Data/clubs";
+import Stadium from "../../Assets/Logo/stadium.png";
+import Link from "../../Assets/Logo/Link.png";
+import CustomCard from "../../Component/CustomCard/CustomCard";
+
+const columns = [
+  {
+    title: "Club Name",
+    render: (record) => (
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ marginRight: 10 }}>{record.logo}</div>
+        <div
+          style={{
+            fontSize: 16,
+            fontFamily: "Gilroy-bold",
+          }}
+        >
+          {record.name}
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Stadium",
+    dataIndex: "stadium",
+    key: "stadium",
+    render: (stadium) => (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            marginRight: 10,
+          }}
+        >
+          <img src={Stadium} alt="Stadium" style={{ width: 50 }} />
+        </div>
+        <div style={{ fontFamily: "Gilroy-bold", fontSize: 14 }}>{stadium}</div>
+      </div>
+    ),
+  },
+  {
+    title: "Visit",
+    dataIndex: "siteUrl",
+    key: "siteUrl",
+    render: (siteUrl) => (
+      <a href={siteUrl}>
+        <img src={Link} alt="Link" style={{ width: 30, height: 30 }} />
+      </a>
+    ),
+  },
+];
 
 const Home = () => {
   const [seasonName, setSeasonName] = useState();
-  const [matches, setMatches] = useState();
-  const [clubs, setClubs] = useState();
+  const [seasonClubs, setSeasonClubs] = useState();
 
   useEffect(() => {
     axios
@@ -15,28 +69,36 @@ const Home = () => {
         "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.clubs.json"
       )
       .then((res) => {
-        // console.log(res.data.name);
-        // console.log(res.data.clubs);
-        setClubs(res.data.clubs);
-      })
-      .catch((error) => console.log(error));
-    axios
-      .get(
-        "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.json"
-      )
-      .then((res) => {
-        setSeasonName(res.data.name);
-        setMatches(res.data.rounds);
+        const result = clubs.filter((data) =>
+          res.data.clubs.some(
+            (data2) => data.name === data2.name.replace(" FC", "")
+          )
+        );
+        setSeasonClubs(result);
       })
       .catch((error) => console.log(error));
   }, []);
   return (
     <div>
       <Navigation page="home" />
-      <h1>{seasonName}</h1>
-      <img src={Arsenal} alt="Arsnel" style={{ width: 50, height: 50 }} />
-      {clubs && clubs.map((club, index) => <li key={index}>{club.name}</li>)}
-      {console.log(clubs)}
+      <div style={{ padding: 10 }}>
+        <h1>Season</h1>
+        <Row gutter={[16, 16]}>
+          {seasonClubs &&
+            seasonClubs.map((data, index) => (
+              <Col key={index} span={4}>
+                <CustomCard data={data} />
+              </Col>
+            ))}
+        </Row>
+        <h1>All Time Club</h1>
+        <Table
+          rowKey="name"
+          columns={columns}
+          dataSource={clubs}
+          rowClassName={() => "editable-row"}
+        />
+      </div>
     </div>
   );
 };

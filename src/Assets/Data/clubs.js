@@ -57,6 +57,8 @@ export const clubs = [
     logo: <img src={Arsenal} alt="Arsenal" style={{ width: 50, height: 50 }} />,
     siteUrl: "https://www.arsenal.com",
     stadium: "Emirates Stadium",
+    clubColor: "#bd0c37",
+    textColor: "#fff",
   },
   {
     name: "Aston Villa",
@@ -69,6 +71,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.avfc.co.uk",
     stadium: "Villa Park",
+    clubColor: "#94bee6",
+    textColor: "#181818",
   },
   {
     name: "Barnsley",
@@ -77,6 +81,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.barnsleyfcdirect.co.uk/",
     stadium: "Oakwell",
+    clubColor: "#dedddf",
+    textColor: "#181818",
   },
   {
     name: "Birmingham City",
@@ -89,6 +95,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.bluesonlinestore.co.uk/",
     stadium: "St.Andrew's Trillion Trophy Stadium",
+    clubColor: "#357abe",
+    textColor: "#fff",
   },
   {
     name: "Blackburn Rovers",
@@ -101,6 +109,8 @@ export const clubs = [
     ),
     siteUrl: "http://www.roverstore.co.uk/",
     stadium: "Ewood Park",
+    clubColor: "#0a758d",
+    textColor: "#fff",
   },
   {
     name: "Blackpool",
@@ -109,6 +119,8 @@ export const clubs = [
     ),
     siteUrl: "http://shop.blackpoolfc.co.uk/",
     stadium: "Bloomfield Road",
+    clubColor: "#f7aa75",
+    textColor: "#181818",
   },
   {
     name: "BoltonWanderers",
@@ -121,6 +133,8 @@ export const clubs = [
     ),
     siteUrl: "http://www.bwfcdirect.co.uk/",
     stadium: "University of Bolton Stadium",
+    clubColor: "#05386f",
+    textColor: "#fff",
   },
   {
     name: "AfcBournemouth",
@@ -133,6 +147,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.afcb.co.uk/",
     stadium: "Vitality Stadium",
+    clubColor: "#c6090e",
+    textColor: "#fff",
   },
   {
     name: "BradfordCity",
@@ -145,6 +161,8 @@ export const clubs = [
     ),
     siteUrl: "http://bantams.clubstore.co.uk/",
     stadium: "Valley Parade",
+    clubColor: "#db9f65",
+    textColor: "#181818",
   },
   {
     name: "Brentford",
@@ -153,9 +171,11 @@ export const clubs = [
     ),
     siteUrl: "https://www.brentfordfc.com",
     stadium: "Brentford Community Stadium",
+    clubColor: "#d20001",
+    textColor: "#fff",
   },
   {
-    name: "Brighton and Hove Albion",
+    name: "Brighton & Hove Albion",
     logo: (
       <img
         src={BrightonHoveAlbion}
@@ -165,12 +185,16 @@ export const clubs = [
     ),
     siteUrl: "https://www.brightonandhovealbion.com",
     stadium: "Amex Stadium",
+    clubColor: "#054a5",
+    textColor: "#181818",
   },
   {
     name: "Burnley",
     logo: <img src={Burnley} alt="Burnley" style={{ width: 50, height: 50 }} />,
     siteUrl: "https://www.burnleyfootballclub.com",
     stadium: "Turf Moor",
+    clubColor: "#8dd3f5",
+    textColor: "#181818",
   },
   {
     name: "Cardiff City",
@@ -183,6 +207,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.cardiffcityfc.co.uk",
     stadium: "Cardiff City Stadium",
+    clubColor: "#075a9f",
+    textColor: "#fff",
   },
   {
     name: "CharltonAthletic",
@@ -195,12 +221,16 @@ export const clubs = [
     ),
     siteUrl: "http://addicks.clubstore.co.uk/",
     stadium: "The Valley",
+    clubColor: "#df2528",
+    textColor: "#181818",
   },
   {
     name: "Chelsea",
     logo: <img src={Chelsea} alt="Chelsea" style={{ width: 50, height: 50 }} />,
     siteUrl: "https://www.chelseafc.com/",
     stadium: "Stamford Bridge",
+    clubColor: "#173d86",
+    textColor: "#fff",
   },
   {
     name: "CoventryCity",
@@ -213,6 +243,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "Highfield Road",
+    clubColor: "#2580a4",
+    textColor: "#181818",
   },
   {
     name: "Crystal Palace",
@@ -225,6 +257,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.cpfc.co.uk",
     stadium: "Selhurst Park",
+    clubColor: "#1b3161",
+    textColor: "#fff",
   },
   {
     name: "DerbyCounty",
@@ -237,18 +271,24 @@ export const clubs = [
     ),
     siteUrl: "http://www.dcfcmegastore.co.uk/",
     stadium: "Pride Park Stadium",
+    clubColor: "#fff",
+    textColor: "#181818",
   },
   {
     name: "Everton",
     logo: <img src={Everton} alt="Everton" style={{ width: 50, height: 50 }} />,
     siteUrl: "http://www.evertonfc.com/",
     stadium: "Goodison Park",
+    clubColor: "#024593",
+    textColor: "#fff",
   },
   {
     name: "Fulham",
     logo: <img src={Fulham} alt="Fulham" style={{ width: 50, height: 50 }} />,
     siteUrl: "http://www.fulhamfc.com/",
     stadium: "Craven Cottage",
+    clubColor: "#a23e38",
+    textColor: "#fff",
   },
   {
     name: "Huddersfield Town",
@@ -261,6 +301,8 @@ export const clubs = [
     ),
     siteUrl: "http://www.ftafc.com/",
     stadium: "John Smith's Stadium",
+    clubColor: "#0c497a",
+    textColor: "#fff",
   },
   {
     name: "Hull City",
@@ -269,6 +311,8 @@ export const clubs = [
     ),
     siteUrl: "http://www.hullcitytigers.com/",
     stadium: "KCOM Stadium",
+    clubColor: "#f5a22e",
+    textColor: "#181818",
   },
   {
     name: "Ipswich Town",
@@ -281,6 +325,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "Portman Road",
+    clubColor: "#0b3e91",
+    textColor: "#181818",
   },
   {
     name: "Leeds United",
@@ -293,6 +339,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.leedsunited.com",
     stadium: "Elland Road",
+    clubColor: "#fddf13",
+    textColor: "#181818",
   },
   {
     name: "Leicester City",
@@ -305,6 +353,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.lcfc.com",
     stadium: "King Powder Stadium",
+    clubColor: "#9bb1d9",
+    textColor: "#181818",
   },
   {
     name: "Liverpool",
@@ -313,6 +363,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.liverpoolfc.com",
     stadium: "Anfield",
+    clubColor: "#1d8b7b",
+    textColor: "#fff",
   },
   {
     name: "Manchester City",
@@ -325,6 +377,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.mancity.com",
     stadium: "Eithad Stadium",
+    clubColor: "#7fb1dc",
+    textColor: "#181818",
   },
   {
     name: "Manchester United",
@@ -337,6 +391,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.manutd.com",
     stadium: "Old Trafford",
+    clubColor: "#d0030c",
+    textColor: "#fff",
   },
   {
     name: "Middlesbrough",
@@ -349,6 +405,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.mfc.co.uk",
     stadium: "Riverside Stadium",
+    clubColor: "#da1d23",
+    textColor: "#fff",
   },
   {
     name: "Newcastle United",
@@ -361,6 +419,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.nufc.co.uk",
     stadium: "St. James' Park",
+    clubColor: "#918f90",
+    textColor: "#181818",
   },
   {
     name: "Norwich City",
@@ -373,6 +433,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.canaries.co.uk",
     stadium: "Carrow Road",
+    clubColor: "#00a650",
+    textColor: "#181818",
   },
   {
     name: "Nottingham Forest",
@@ -385,6 +447,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "City Ground",
+    clubColor: "#ff6e7b",
+    textColor: "#181818",
   },
   {
     name: "Oldham Athletic",
@@ -397,6 +461,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "Boundary Park",
+    clubColor: "#babcc0",
+    textColor: "#181818",
   },
   {
     name: "Portsmouth",
@@ -409,6 +475,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "Fratton Park",
+    clubColor: "#001485",
+    textColor: "#fff",
   },
   {
     name: "Queens Park Rangers",
@@ -421,12 +489,16 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "Loftus Road",
+    clubColor: "#95b3cf",
+    textColor: "#181818",
   },
   {
     name: "Reading",
     logo: <img src={Reading} alt="Reading" style={{ width: 50, height: 50 }} />,
     siteUrl: "",
     stadium: "Madejski Stadium",
+    clubColor: "#82c28",
+    textColor: "#181818",
   },
   {
     name: "Sheffield United",
@@ -439,6 +511,8 @@ export const clubs = [
     ),
     siteUrl: "https://www/sufc.co.uk",
     stadium: "Bramall Lane",
+    clubColor: "#ec1d26",
+    textColor: "#fff",
   },
   {
     name: "Sheffield Wednesday",
@@ -451,6 +525,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "Hillsborough",
+    clubColor: "#4681cf",
+    textColor: "#181818",
   },
   {
     name: "Southampton",
@@ -463,6 +539,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.southamptonfc.com",
     stadium: "St. Mary's Stadium",
+    clubColor: "#bb0d13",
+    textColor: "#fff",
   },
   {
     name: "Stoke City",
@@ -471,6 +549,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.stokecityfc.com",
     stadium: "bet365 Stadium",
+    clubColor: "#cf1a32",
+    textColor: "#fff",
   },
   {
     name: "Sunderland",
@@ -483,6 +563,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.safc.com",
     stadium: "Stadium of Light",
+    clubColor: "#ab270a",
+    textColor: "#fff",
   },
   {
     name: "Swansea City",
@@ -495,6 +577,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.swanseacity.com",
     stadium: "Liberty Stadium",
+    clubColor: "#1c1c1a",
+    textColor: "#fff",
   },
   {
     name: "Swindon Town",
@@ -507,6 +591,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "County Ground",
+    clubColor: "#dd3b2b",
+    textColor: "#181818",
   },
   {
     name: "Tottenham Hotspur",
@@ -519,12 +605,16 @@ export const clubs = [
     ),
     siteUrl: "https://www.tottenhamhotspur.com",
     stadium: "Tottenham Hotspur Stadium",
+    clubColor: "#3d497a",
+    textColor: "#fff",
   },
   {
     name: "Watford",
     logo: <img src={Watford} alt="Watford" style={{ width: 50, height: 50 }} />,
     siteUrl: "https://www.watfordfc.com",
     stadium: "Vicarage Road",
+    clubColor: "#ffea00",
+    textColor: "#181818",
   },
   {
     name: "West Bromwich Albion",
@@ -537,6 +627,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.wba.co.uk",
     stadium: "The Hawthorns",
+    clubColor: "#112d66",
+    textColor: "#fff",
   },
   {
     name: "West Ham United",
@@ -549,6 +641,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.whufc.com",
     stadium: "London Stadium",
+    clubColor: "#7d2c3b",
+    textColor: "#fff",
   },
   {
     name: "Wigan Athletic",
@@ -561,6 +655,8 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "DW Stadium",
+    clubColor: "#005ca7",
+    textColor: "#fff",
   },
   {
     name: "Wimbledon",
@@ -569,8 +665,9 @@ export const clubs = [
     ),
     siteUrl: "",
     stadium: "Selhurst Park",
+    clubColor: "#ca961f",
+    textColor: "#181818",
   },
-
   {
     name: "Wolverhampton Wanderers",
     logo: (
@@ -582,5 +679,7 @@ export const clubs = [
     ),
     siteUrl: "https://www.wolves.co.uk",
     stadium: "Molineux Stadium",
+    clubColor: "#f8a019",
+    textColor: "#181818",
   },
 ];

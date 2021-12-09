@@ -4,6 +4,12 @@
     url("Assets/Fonts/Gilroy-Regular.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Gilroy-bold";
+  src: url("Assets/Fonts/Gilroy-Bold.woff2") format("woff"),
+    url("Assets/Fonts/Gilroy-Bold.woff2") format("woff2");
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",

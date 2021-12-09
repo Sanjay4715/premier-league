@@ -31,7 +31,6 @@ const CustomMenuItem = ({ name, url, urlArr, activeUrl, currentPage }) => {
         name.toLowerCase() === currentPage.toLowerCase() ? "item-selected" : ""
       }
     >
-      {console.log(name, currentPage)}
       {name}
     </StyledItem>
   );
