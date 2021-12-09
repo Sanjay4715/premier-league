@@ -305,7 +305,7 @@ export const clubs = [
     textColor: "#fff",
   },
   {
-    name: "Hull City",
+    name: "Hull City AFC",
     logo: (
       <img src={HullCity} alt="HullCity" style={{ width: 50, height: 50 }} />
     ),
