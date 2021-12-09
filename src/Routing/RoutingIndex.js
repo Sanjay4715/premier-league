@@ -10,7 +10,6 @@ const RoutingIndex = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/results" element={<Results />} />
-      <Route path="/results/:club" element={<Results />} />
       <Route path="/table" element={<SeasonTable />} />
       <Route path="/*" element={<PageNotFound />} />
     </Routes>

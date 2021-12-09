@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, Row, Col } from "antd";
+import { Table, Row, Col, Skeleton } from "antd";
 
 import Navigation from "../../Component/Navigation/Navigation";
 import { clubs } from "../../Assets/Data/clubs";
@@ -86,8 +86,10 @@ const Home = () => {
         <Row gutter={[16, 16]}>
           {seasonClubs &&
             seasonClubs.map((data, index) => (
-              <Col key={index} span={4}>
-                <CustomCard data={data} />
+              <Col span={4} key={index}>
+                <Skeleton loading={!data} active>
+                  <CustomCard data={data} />
+                </Skeleton>
               </Col>
             ))}
         </Row>

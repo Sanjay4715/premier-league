@@ -19,7 +19,13 @@ const StyledRow = styled.tr({
   borderBottom: `1px solid #eee`,
 });
 
-const CustomTable = ({ dataSource, columns, pointsOrder, completeMatches }) => {
+const CustomTable = ({
+  dataSource,
+  columns,
+  pointsOrder,
+  completeMatches,
+  filterTeam,
+}) => {
   return (
     <RootTable>
       <thead>
@@ -41,6 +47,7 @@ const CustomTable = ({ dataSource, columns, pointsOrder, completeMatches }) => {
               pointsOrder={pointsOrder}
               dataSource={dataSource}
               completeMatches={completeMatches}
+              filterTeam={filterTeam}
             />
           ))}
       </tbody>

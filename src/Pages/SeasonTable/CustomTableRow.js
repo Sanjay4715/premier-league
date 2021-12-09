@@ -49,6 +49,7 @@ const CustomTableRow = ({
   pointsOrder,
   dataSource,
   completeMatches,
+  filterTeam,
 }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -69,13 +70,14 @@ const CustomTableRow = ({
       key={index}
       style={{
         backgroundColor:
-          pointsOrder === "Descending"
+          !filterTeam &&
+          (pointsOrder === "Descending"
             ? index < 4
               ? "#6fb76f"
               : index > dataSource.length - 4 && "#ff6666"
             : index < 3
             ? "#ff6666"
-            : index > dataSource.length - 5 && "#6fb76f",
+            : index > dataSource.length - 5 && "#6fb76f"),
       }}
     >
       <StyledColumnData>

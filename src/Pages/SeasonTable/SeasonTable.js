@@ -1,16 +1,31 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
+import { Input } from "antd";
+import styled from "@emotion/styled";
 
 import CustomSelect from "../../Component/CustomSelect/CustomSelect";
 import CustomTable from "./CustomTable";
 import Navigation from "../../Component/Navigation/Navigation";
 
+const StyledInput = styled(Input)({
+  width: 300,
+  fontFamily: "Gilroy",
+  color: "#37003c",
+  border: `1px solid #37003c`,
+  fontWeight: "bold",
+  ":hover": {
+    border: `1px solid #37003c`,
+  },
+});
+
 const SeasonTable = () => {
   const [completeMatches, setCompleteMatches] = useState([]);
   const [dataSource, setDataSource] = useState([]);
   const [pointsOrder, setPointsOrder] = useState("Descending");
+  const [filterTeam, setFilterTeam] = useState("");
   const [asecendingSource, setAscendingSource] = useState([]);
+  const [filterData, setFilterData] = useState([]);
 
   const columns = [
     {
@@ -160,6 +175,7 @@ const SeasonTable = () => {
     }
     dataArr.sort(compareRank);
     setDataSource(dataArr);
+    setFilterData(dataArr);
   };
 
   const compareRank = (a, b) => {
@@ -202,8 +218,10 @@ const SeasonTable = () => {
     setPointsOrder(value);
     if (value === "Ascending") {
       setAscendingSource(dataSource.sort(compareAscendingPoints));
+      setFilterData(filterData.sort(compareAscendingPoints));
     } else {
       setDataSource(dataSource.sort(compareDescendingPoints));
+      setFilterData(filterData.sort(compareDescendingPoints));
     }
   };
 
@@ -233,27 +251,49 @@ const SeasonTable = () => {
     return comparison;
   };
 
+  const handleFilterTeam = (e) => {
+    setFilterTeam(e.target.value);
+    let data = pointsOrder === "Descending" ? dataSource : asecendingSource;
+    setFilterData(
+      data.filter(
+        (data) =>
+          data.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1
+      )
+    );
+  };
+
   return (
     <div>
       <Navigation page="table" />
       <div style={{ padding: 20 }}>
-        <div>
-          <div>Sorting By Points</div>
-          <CustomSelect
-            value={pointsOrder}
-            options={[{ name: "Ascending" }, { name: "Descending" }]}
-            setData={handleOrderPoints}
-            placeholder="Select Match Day"
-            style={{ width: 250 }}
-          />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ marginRight: 20 }}>
+            <div style={{ marginRight: 10 }}>Sorting By Points</div>
+            <CustomSelect
+              value={pointsOrder}
+              options={[{ name: "Ascending" }, { name: "Descending" }]}
+              setData={handleOrderPoints}
+              placeholder="Select Match Day"
+              style={{ width: 250 }}
+            />
+          </div>
+          <div>
+            <div style={{ marginRight: 10 }}>Search By Team Name</div>
+            <StyledInput
+              name="filterTeam"
+              value={filterTeam}
+              placeholder="Enter Team Name"
+              onChange={handleFilterTeam}
+            />
+          </div>
         </div>
+
         <CustomTable
           columns={columns}
-          dataSource={
-            pointsOrder === "Ascending" ? asecendingSource : dataSource
-          }
+          dataSource={filterData}
           pointsOrder={pointsOrder}
           completeMatches={completeMatches}
+          filterTeam={filterTeam}
         />
       </div>
     </div>
