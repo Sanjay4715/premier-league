@@ -4,10 +4,11 @@ import { Table } from "antd";
 import styled from "@emotion/styled";
 import axios from "axios";
 import moment from "moment";
+import { getClubDetails } from "../../Component/GetClubDetails/GetClubDetails";
 
 const StyledTable = styled(Table)({
   ".green": { backgroundColor: "#66b266" },
-  ".red": { backgroundColor: "#ff3333" },
+  ".red": { backgroundColor: "#ff4c4c" },
   ".ant-table-tbody>tr.ant-table-row-level-0:hover>td": {
     background: "unset",
   },
@@ -40,6 +41,11 @@ const StyledForm = styled.div({
   },
 });
 
+const StyledText = styled.div({
+  fontSize: 16,
+  fontFamily: "Gilroy-bold",
+});
+
 const SeasonTable = () => {
   const [completeMatches, setCompleteMatches] = useState([]);
   const [dataSource, setDataSource] = useState([]);
@@ -48,51 +54,65 @@ const SeasonTable = () => {
     {
       title: <StyledColumnTitle>Rank</StyledColumnTitle>,
       width: 100,
-      render: (item, record, index) => <>{index + 1}</>,
+      render: (item, record, index) => <StyledText>{index + 1}</StyledText>,
     },
     {
       title: <StyledColumnTitle>Club Name</StyledColumnTitle>,
       dataIndex: "name",
+      render: (name) => (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ marginRight: 10 }}>{getClubDetails(name).logo}</div>
+          <StyledText>{name}</StyledText>
+        </div>
+      ),
     },
     {
       title: <StyledColumnTitle>Played</StyledColumnTitle>,
       width: 100,
       dataIndex: "matchPlayed",
+      render: (matchedPlayed) => <StyledText>{matchedPlayed}</StyledText>,
     },
     {
       title: <StyledColumnTitle>Points</StyledColumnTitle>,
       width: 100,
       dataIndex: "points",
+      render: (points) => <StyledText>{points}</StyledText>,
     },
     {
       title: <StyledColumnTitle>Won</StyledColumnTitle>,
       width: 100,
       dataIndex: "won",
+      render: (won) => <StyledText>{won}</StyledText>,
     },
     {
       title: <StyledColumnTitle>Drawn</StyledColumnTitle>,
       width: 100,
       dataIndex: "drawn",
+      render: (drawn) => <StyledText>{drawn}</StyledText>,
     },
     {
       title: <StyledColumnTitle>Lost</StyledColumnTitle>,
       width: 100,
       dataIndex: "lost",
+      render: (lost) => <StyledText>{lost}</StyledText>,
     },
     {
       title: <StyledColumnTitle>GF</StyledColumnTitle>,
       width: 100,
       dataIndex: "gf",
+      render: (gf) => <StyledText>{gf}</StyledText>,
     },
     {
       title: <StyledColumnTitle>GA</StyledColumnTitle>,
       width: 100,
       dataIndex: "ga",
+      render: (ga) => <StyledText>{ga}</StyledText>,
     },
     {
       title: <StyledColumnTitle>GD</StyledColumnTitle>,
       width: 100,
       dataIndex: "gd",
+      render: (gd) => <StyledText>{gd}</StyledText>,
     },
     {
       title: <StyledColumnTitle>Form</StyledColumnTitle>,
