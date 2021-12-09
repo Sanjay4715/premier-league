@@ -5,6 +5,7 @@ import moment from "moment";
 
 import CancelIcon from "../../Assets/Logo/cancel.png";
 import { getClubDetails } from "../../Component/GetClubDetails/GetClubDetails";
+import { Link } from "react-router-dom";
 
 const StyledTeam = styled.div({
   width: "35%",
@@ -22,6 +23,15 @@ const StyledScore = styled.div({
   fontFamily: "Gilroy-bold",
   fontSize: 15,
   marginRight: 10,
+});
+
+const StyledLink = styled(Link)({
+  fontSize: 20,
+  fontFamily: "Gilroy-bold",
+  ":hover": {
+    cursor: "pointer",
+    textDecoration: "underline",
+  },
 });
 
 const ClubModal = (props) => {
@@ -51,7 +61,7 @@ const ClubModal = (props) => {
       footer={false}
       width={700}
     >
-      {props.matchDetails.map((match, index) => (
+      {props.matchDetails.slice(0, 4).map((match, index) => (
         <div
           key={index}
           style={{
@@ -98,6 +108,9 @@ const ClubModal = (props) => {
           <Divider />
         </div>
       ))}
+      <StyledLink to={`/results/${props.clubDetails.name}`}>
+        View More
+      </StyledLink>
     </Modal>
   );
 };

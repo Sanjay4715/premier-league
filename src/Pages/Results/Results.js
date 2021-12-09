@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-import moment from "moment";
 import { Select } from "antd";
 
 import Navigation from "../../Component/Navigation/Navigation";
@@ -39,8 +39,10 @@ const Home = () => {
     <div>
       <Navigation page="results" />
       <div style={{ padding: 20 }}>
-        <div>
-          <div style={{ fontSize: 16, fontFamily: "Gilroy-bold" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div
+            style={{ fontSize: 18, fontFamily: "Gilroy-bold", marginRight: 10 }}
+          >
             Match Day
           </div>
           <CustomSelect
@@ -56,20 +58,6 @@ const Home = () => {
           filterMatches.map((data, index) => (
             <ScoreResult key={index} data={data} />
           ))}
-
-        {/* {matches &&
-          matches.map((match, index) => {
-            return (
-              <div key={index}>
-                <div>{match.name}</div>
-                {match.matches.map((data, index) => (
-                  <div key={index}>
-                    <div>{moment(data.date).format("MMMM Do YYYY")}</div>
-                  </div>
-                ))}
-              </div>
-            );
-          })} */}
       </div>
     </div>
   );
