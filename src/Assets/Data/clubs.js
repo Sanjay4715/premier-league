@@ -137,7 +137,7 @@ export const clubs = [
     textColor: "#fff",
   },
   {
-    name: "AfcBournemouth",
+    name: "AFC Bournemouth",
     logo: (
       <img
         src={AfcBournemouth}
@@ -553,7 +553,7 @@ export const clubs = [
     textColor: "#fff",
   },
   {
-    name: "Sunderland",
+    name: "Sunderland AFC",
     logo: (
       <img
         src={Sunderland}
