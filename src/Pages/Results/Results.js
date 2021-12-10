@@ -83,20 +83,27 @@ const Home = () => {
       <Navigation page="results" />
       <div style={{ padding: 20 }}>
         <h1>Season {season}</h1>
-        <SeasonSelect seasonValue={season} setSeason={handleSeason} />
         <div style={{ display: "flex", alignItems: "center" }}>
-          <div
-            style={{ fontSize: 18, fontFamily: "Gilroy-bold", marginRight: 10 }}
-          >
-            Match Day
+          <div style={{ marginRight: 20 }}>
+            <SeasonSelect seasonValue={season} setSeason={handleSeason} />
           </div>
-          <CustomSelect
-            value={matchDay}
-            options={matches && matches}
-            setData={handleMatchDay}
-            placeholder="Select Match Day"
-            style={{ width: 250 }}
-          />
+          <div>
+            <div
+              style={{
+                fontSize: 14,
+                fontFamily: "Gilroy-bold",
+              }}
+            >
+              Match Day
+            </div>
+            <CustomSelect
+              value={matchDay}
+              options={matches && matches}
+              setData={handleMatchDay}
+              placeholder="Select Match Day"
+              style={{ width: 250 }}
+            />
+          </div>
         </div>
         <h1>{matchDay}</h1>
         {filterMatches.length !== 0 &&

@@ -97,7 +97,9 @@ const Home = () => {
       <Navigation page="home" />
       <div style={{ padding: 10 }}>
         <h1>Season {season}</h1>
-        <SeasonSelect seasonValue={season} setSeason={handleSeason} />
+        <div style={{ marginBottom: 20 }}>
+          <SeasonSelect seasonValue={season} setSeason={handleSeason} />
+        </div>
         <Row gutter={[16, 16]}>
           {seasonClubs &&
             seasonClubs.map((data, index) => (

@@ -32,10 +32,9 @@ const SeasonSelect = ({ seasonValue, setSeason }) => {
   }, [seasonValue]);
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div>
       <div
         style={{
-          marginRight: 10,
           fontSize: 16,
           fontWeight: "bold",
           fontFamily: "Gilroy",

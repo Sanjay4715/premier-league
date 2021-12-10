@@ -323,7 +323,15 @@ const SeasonTable = () => {
             <SeasonSelect seasonValue={season} setSeason={handleSeason} />
           </div>
           <div style={{ marginRight: 20 }}>
-            <div style={{ marginRight: 10 }}>Sorting By Points</div>
+            <div
+              style={{
+                fontSize: 16,
+                fontWeight: "bold",
+                fontFamily: "Gilroy",
+              }}
+            >
+              Sorting By Points
+            </div>
             <CustomSelect
               value={pointsOrder}
               options={[{ name: "Ascending" }, { name: "Descending" }]}
@@ -333,7 +341,15 @@ const SeasonTable = () => {
             />
           </div>
           <div>
-            <div style={{ marginRight: 10 }}>Search By Team Name</div>
+            <div
+              style={{
+                fontSize: 16,
+                fontWeight: "bold",
+                fontFamily: "Gilroy",
+              }}
+            >
+              Search By Team Name
+            </div>
             <StyledInput
               name="filterTeam"
               value={filterTeam}
