@@ -44,7 +44,11 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./public/index.html",
+      filename: "./index.html",
+      favicon: "./public/pl2.png",
+      template: "./public/_redirects",
+      filename: "./_redirects",
     }),
   ],
 };
