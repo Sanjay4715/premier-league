@@ -66,7 +66,9 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.clubs.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/${localStorage.getItem(
+          "season"
+        )}/en.1.clubs.json`
       )
       .then((res) => {
         console.log(res.data);

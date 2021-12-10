@@ -79,7 +79,9 @@ const SeasonTable = () => {
     let matches = [];
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/2018-19/en.1.clubs.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/${localStorage.getItem(
+          "season"
+        )}/en.1.clubs.json`
       )
       .then((res) => {
         clubs = [...res.data.clubs];
@@ -87,7 +89,7 @@ const SeasonTable = () => {
       .catch((error) => console.log(error));
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/2018-19/en.1.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.json`
       )
       .then((res) => {
         let finalMatchesArr = [];
@@ -129,6 +131,7 @@ const SeasonTable = () => {
 
   const renderClubMatches = (clubs, matches) => {
     let finalArr = [];
+    console.log(matches);
     for (let i = 0; i < clubs.length; i++) {
       let tempObj = { name: clubs[i].name, code: clubs[i].code };
       let totalMatches = [];
@@ -139,7 +142,10 @@ const SeasonTable = () => {
               matchDay: matches[j].name,
               matchDate: matches[j].matches[k].date,
               opponent: matches[j].matches[k].team2,
-              score: matches[j].matches[k].score.ft,
+              score:
+                matches[j].matches[k].score !== undefined
+                  ? matches[j].matches[k].score.ft
+                  : "To Be Played",
             };
             totalMatches.push(tempMatchObj);
           }
@@ -153,12 +159,16 @@ const SeasonTable = () => {
   };
 
   const calculateStat = (clubs) => {
+    console.log(clubs, "clubs");
     let dataArr = [];
     for (let i = 0; i < clubs.length; i++) {
+      let playedMatches = clubs[i].totalMatches.filter(
+        (data) => data.score !== "To Be Played"
+      );
       let dataObj = {
         name: clubs[i].name,
         code: clubs[i].code,
-        matchPlayed: clubs[i].totalMatches.length,
+        matchPlayed: playedMatches.length,
       };
       let points = 0;
       let won = 0;
@@ -167,12 +177,12 @@ const SeasonTable = () => {
       let gf = 0;
       let ga = 0;
       let form = [];
-      clubs[i].totalMatches.sort(compare);
+      playedMatches.sort(compare);
       let counter = 0;
-      for (let j = 0; j < clubs[i].totalMatches.length; j++) {
+      for (let j = 0; j < playedMatches.length; j++) {
         let result = checkWin(
-          clubs[i].totalMatches[j].score[0],
-          clubs[i].totalMatches[j].score[1]
+          playedMatches[j].score[0],
+          playedMatches[j].score[1]
         );
         if (counter <= 4) {
           form.push(result);
@@ -188,8 +198,8 @@ const SeasonTable = () => {
           points = points + 1;
           drawn = drawn + 1;
         }
-        gf = gf + clubs[i].totalMatches[j].score[0];
-        ga = ga + clubs[i].totalMatches[j].score[1];
+        gf = gf + playedMatches[j].score[0];
+        ga = ga + playedMatches[j].score[1];
       }
       dataObj = {
         ...dataObj,

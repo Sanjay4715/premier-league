@@ -61,8 +61,16 @@ const ScoreResult = ({ data }) => {
             <div style={{ marginRight: 20 }}>
               {getClubDetails(data.team1).logo}
             </div>
-            <StyledScore>{data.score.ft[0]}</StyledScore>
-            <StyledScore>{data.score.ft[1]}</StyledScore>
+            {data.score ? (
+              <div style={{ display: "flex" }}>
+                <StyledScore>{data.score.ft[0]}</StyledScore>
+                <StyledScore>{data.score.ft[1]}</StyledScore>
+              </div>
+            ) : (
+              <div style={{ marginRight: 20, fontFamily: "Gilroy-bold" }}>
+                To Be Played
+              </div>
+            )}
             <div style={{ marginRight: 20 }}>
               {getClubDetails(data.team2).logo}
             </div>

@@ -87,11 +87,30 @@ const ClubModal = (props) => {
               {props.clubDetails.name}
             </StyledTeam>
             <div
-              style={{ width: "30%", display: "flex", alignItems: "center" }}
+              style={{
+                width: match.score === "To Be Played" ? "40%" : "30%",
+                display: "flex",
+                alignItems: "center",
+              }}
             >
               <div style={{ marginRight: 10 }}>{props.clubDetails.logo}</div>
-              <StyledScore>{match.score[0]}</StyledScore>
-              <StyledScore>{match.score[1]}</StyledScore>
+              {match.score === "To Be Played" ? (
+                <div
+                  style={{
+                    fontFamily: "Gilroy-bold",
+                    textAlign: "center",
+                    color: props.clubDetails.textColor,
+                    marginRight: 10,
+                  }}
+                >
+                  To Be Played
+                </div>
+              ) : (
+                <div style={{ display: "flex" }}>
+                  <StyledScore>{match.score[0]}</StyledScore>
+                  <StyledScore>{match.score[1]}</StyledScore>
+                </div>
+              )}
               <div style={{ marginRight: 10 }}>
                 {getClubDetails(match.opponent).logo}
               </div>

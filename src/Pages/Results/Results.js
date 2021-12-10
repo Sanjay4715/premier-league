@@ -18,7 +18,7 @@ const Home = () => {
     console.log(localStorage.getItem("season"));
     axios
       .get(
-        "https://raw.githubusercontent.com/openfootball/football.json/master/2018-19/en.1.json"
+        `https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.json`
       )
       .then((res) => {
         let resultData = [];
