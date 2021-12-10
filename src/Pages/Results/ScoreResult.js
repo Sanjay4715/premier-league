@@ -4,7 +4,7 @@ import moment from "moment";
 
 import { clubs } from "../../Assets/Data/clubs";
 import { getClubDetails } from "../../Component/GetClubDetails/GetClubDetails";
-import { Divider } from "antd";
+import { Divider, Skeleton } from "antd";
 
 const StyledTeam = styled.div({
   color: "#37003c",
@@ -30,7 +30,7 @@ const StyledScore = styled.div({
 
 const ScoreResult = ({ data }) => {
   return (
-    <React.Fragment>
+    <Skeleton loading={!data} active>
       <div
         style={{
           display: "flex",
@@ -79,7 +79,7 @@ const ScoreResult = ({ data }) => {
         </div>
       </div>
       <Divider />
-    </React.Fragment>
+    </Skeleton>
   );
 };
 

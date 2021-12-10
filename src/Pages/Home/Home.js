@@ -67,6 +67,7 @@ const Home = () => {
   );
   const [seasonClubs, setSeasonClubs] = useState();
   const [errorStatus, setErrorStatus] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getClubs(season);
@@ -78,13 +79,17 @@ const Home = () => {
         `https://raw.githubusercontent.com/openfootball/football.json/master/${season}/en.1.clubs.json`
       )
       .then((res) => {
-        const result = clubs.filter((data) =>
-          res.data.clubs.some(
-            (data2) => data.name === data2.name.replace(" FC", "")
-          )
-        );
-        setSeasonClubs(result);
-        setErrorStatus("");
+        if (res.data.clubs) {
+          const result = clubs.filter((data) =>
+            res.data.clubs.some(
+              (data2) => data.name === data2.name.replace(" FC", "")
+            )
+          );
+          setSeasonClubs(result);
+          setErrorStatus("");
+        } else {
+          setLoading(true);
+        }
       })
       .catch((error) => {
         if (error.response.status === 404) {

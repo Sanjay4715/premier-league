@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import moment from "moment";
-import { Input } from "antd";
+import { Input, Skeleton } from "antd";
 import styled from "@emotion/styled";
 
 import CustomSelect from "../../Component/CustomSelect/CustomSelect";
@@ -375,13 +375,15 @@ const SeasonTable = () => {
             Data Not Available
           </div>
         ) : (
-          <CustomTable
-            columns={columns}
-            dataSource={filterData}
-            pointsOrder={pointsOrder}
-            completeMatches={completeMatches}
-            filterTeam={filterTeam}
-          />
+          <Skeleton loading={!filterData} active>
+            <CustomTable
+              columns={columns}
+              dataSource={filterData}
+              pointsOrder={pointsOrder}
+              completeMatches={completeMatches}
+              filterTeam={filterTeam}
+            />
+          </Skeleton>
         )}
       </div>
     </div>
