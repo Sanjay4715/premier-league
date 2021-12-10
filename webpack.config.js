@@ -47,8 +47,7 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html",
       favicon: "./public/pl2.png",
-      template: "./public/_redirects",
-      filename: "./_redirects",
+      favicon: "./public/_redirects",
     }),
   ],
 };
