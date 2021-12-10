@@ -25,7 +25,7 @@ const StyledScore = styled.div({
   marginRight: 10,
 });
 
-const StyledLink = styled(Link)({
+const StyledLink = styled.a({
   fontSize: 20,
   fontFamily: "Gilroy-bold",
   ":hover": {
@@ -61,7 +61,7 @@ const ClubModal = (props) => {
       footer={false}
       width={700}
     >
-      {props.matchDetails.slice(0, 4).map((match, index) => (
+      {props.matchDetails.map((match, index) => (
         <div
           key={index}
           style={{
@@ -108,8 +108,12 @@ const ClubModal = (props) => {
           <Divider />
         </div>
       ))}
-      <StyledLink to={`/results/${props.clubDetails.name}`}>
-        View More
+      <StyledLink
+        href={props.clubDetails.siteUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View Site
       </StyledLink>
     </Modal>
   );

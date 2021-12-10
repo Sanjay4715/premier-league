@@ -123,7 +123,7 @@ export const clubs = [
     textColor: "#181818",
   },
   {
-    name: "BoltonWanderers",
+    name: "Bolton Wanderers",
     logo: (
       <img
         src={BoltonWanderers}
@@ -185,8 +185,8 @@ export const clubs = [
     ),
     siteUrl: "https://www.brightonandhovealbion.com",
     stadium: "Amex Stadium",
-    clubColor: "#054a5",
-    textColor: "#181818",
+    clubColor: "#0054a6",
+    textColor: "#fff",
   },
   {
     name: "Burnley",
@@ -291,7 +291,7 @@ export const clubs = [
     textColor: "#fff",
   },
   {
-    name: "Huddersfield Town",
+    name: "Huddersfield Town AFC",
     logo: (
       <img
         src={HuddersfieldTown}

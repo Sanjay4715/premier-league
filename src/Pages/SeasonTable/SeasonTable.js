@@ -79,7 +79,7 @@ const SeasonTable = () => {
     let matches = [];
     axios
       .get(
-        "https://raw.githubusercontent.com/openfootball/football.json/master/2016-17/en.1.clubs.json"
+        `https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.clubs.json`
       )
       .then((res) => {
         clubs = [...res.data.clubs];
@@ -87,7 +87,7 @@ const SeasonTable = () => {
       .catch((error) => console.log(error));
     axios
       .get(
-        "https://raw.githubusercontent.com/openfootball/football.json/master/2016-17/en.1.json"
+        `https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json`
       )
       .then((res) => {
         matches = [...res.data.rounds];

@@ -66,9 +66,10 @@ const Home = () => {
   useEffect(() => {
     axios
       .get(
-        "https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.clubs.json"
+        `https://raw.githubusercontent.com/openfootball/football.json/master/2019-20/en.1.clubs.json`
       )
       .then((res) => {
+        console.log(res.data);
         const result = clubs.filter((data) =>
           res.data.clubs.some(
             (data2) => data.name === data2.name.replace(" FC", "")
@@ -82,7 +83,7 @@ const Home = () => {
     <div>
       <Navigation page="home" />
       <div style={{ padding: 10 }}>
-        <h1>Season</h1>
+        <h1>Season {localStorage.getItem("season")}</h1>
         <Row gutter={[16, 16]}>
           {seasonClubs &&
             seasonClubs.map((data, index) => (

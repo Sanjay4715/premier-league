@@ -15,16 +15,48 @@ const Home = () => {
   const [filterMatches, setFilterMatches] = useState([]);
 
   useEffect(() => {
+    console.log(localStorage.getItem("season"));
     axios
       .get(
-        "https://raw.githubusercontent.com/openfootball/football.json/master/2015-16/en.1.json"
+        "https://raw.githubusercontent.com/openfootball/football.json/master/2018-19/en.1.json"
       )
       .then((res) => {
-        setMatches(res.data.rounds);
-        let currentMatchDay = res.data.rounds[res.data.rounds.length - 1].name;
+        let resultData = [];
+        if (res.data.rounds) {
+          resultData = res.data.rounds && res.data.rounds;
+        }
+        if (res.data.matches) {
+          const uniqueMatchday = [];
+          res.data.matches.filter((match) => {
+            const isDuplicate = uniqueMatchday.includes(match.round);
+            if (!isDuplicate) {
+              uniqueMatchday.push(match.round);
+              return true;
+            }
+          });
+          let finalMatchArr = [];
+          for (let i = 0; i < uniqueMatchday.length; i++) {
+            let matches = [];
+            for (let j = 0; j < res.data.matches.length; j++) {
+              if (uniqueMatchday[i] === res.data.matches[j].round) {
+                let matchesObj = {
+                  date: res.data.matches[j].date,
+                  team1: res.data.matches[j].team1,
+                  team2: res.data.matches[j].team2,
+                  score: res.data.matches[j].score,
+                };
+                matches.push(matchesObj);
+              }
+            }
+            finalMatchArr.push({ name: uniqueMatchday[i], matches });
+          }
+          resultData = [...finalMatchArr];
+        }
+        setMatches(resultData);
+        let currentMatchDay = resultData[resultData.length - 1].name;
         setMatchDay(currentMatchDay);
         setFilterMatches(
-          res.data.rounds.find((data) => data.name === currentMatchDay).matches
+          resultData.find((data) => data.name === currentMatchDay).matches
         );
       })
       .catch((error) => console.log(error));
