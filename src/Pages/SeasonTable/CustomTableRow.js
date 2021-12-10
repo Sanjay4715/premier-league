@@ -69,15 +69,15 @@ const CustomTableRow = ({
     <StyledRow
       key={index}
       style={{
-        backgroundColor:
-          !filterTeam &&
-          (pointsOrder === "Descending"
+        backgroundColor: !filterTeam
+          ? pointsOrder === "Descending"
             ? index < 4
               ? "#6fb76f"
-              : index > dataSource && dataSource.length - 4 && "#ff6666"
+              : index > dataSource.length - 4 && "#ff6666"
             : index < 3
             ? "#ff6666"
-            : index > dataSource && dataSource.length - 5 && "#6fb76f"),
+            : index > dataSource.length - 5 && "#6fb76f"
+          : "inherit",
       }}
     >
       <StyledColumnData>

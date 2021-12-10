@@ -317,6 +317,7 @@ const SeasonTable = () => {
 
   const handleSeason = (value) => {
     setSeason(value);
+    setFilterTeam("");
     getTableMatches(value);
   };
 

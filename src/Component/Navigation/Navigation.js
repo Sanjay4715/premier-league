@@ -21,12 +21,12 @@ const Navigation = (props) => {
       url: "/",
     },
     {
-      name: "Results",
-      url: "/results",
-    },
-    {
       name: "Table",
       url: "/table",
+    },
+    {
+      name: "Results",
+      url: "/results",
     },
   ];
 
