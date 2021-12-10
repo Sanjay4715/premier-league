@@ -5,7 +5,7 @@ import { Select } from "antd";
 const { Option } = Select;
 
 const CustomSelect = styled(Select)({
-  width: 120,
+  width: 200,
   fontFamily: "Gilroy",
   color: "#37003c",
   border: `1px solid #37003c`,
@@ -21,7 +21,7 @@ const SeasonSelect = ({ seasonValue, setSeason }) => {
   useEffect(() => {
     const year = new Date().getFullYear();
     const years = Array.from(
-      new Array(5),
+      new Array(12),
       (val, index) =>
         year - index + "-" + (year - index + 1).toString().slice(-2)
     );

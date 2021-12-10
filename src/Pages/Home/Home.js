@@ -66,10 +66,11 @@ const Home = () => {
     year - 1 + "-" + year.toString().slice(-2)
   );
   const [seasonClubs, setSeasonClubs] = useState();
+  const [errorStatus, setErrorStatus] = useState();
 
   useEffect(() => {
     getClubs(season);
-  }, []);
+  }, [season]);
 
   const getClubs = (season) => {
     axios
@@ -83,8 +84,14 @@ const Home = () => {
           )
         );
         setSeasonClubs(result);
+        setErrorStatus("");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error.response.status === 404) {
+          console.clear();
+          setErrorStatus("Not Found");
+        }
+      });
   };
 
   const handleSeason = (value) => {
@@ -95,21 +102,32 @@ const Home = () => {
   return (
     <div>
       <Navigation page="home" />
-      <div style={{ padding: 10 }}>
+      <div style={{ padding: `10px 30px 10px 30px` }}>
         <h1>Season {season}</h1>
         <div style={{ marginBottom: 20 }}>
-          <SeasonSelect seasonValue={season} setSeason={handleSeason} />
+          <SeasonSelect
+            seasonValue={season}
+            setSeason={handleSeason}
+            style={{ width: 300 }}
+          />
         </div>
-        <Row gutter={[16, 16]}>
-          {seasonClubs &&
-            seasonClubs.map((data, index) => (
-              <Col span={4} key={index}>
-                <Skeleton loading={!data} active>
-                  <CustomCard data={data} />
-                </Skeleton>
-              </Col>
-            ))}
-        </Row>
+        <h2>Clubs This Season</h2>
+        {errorStatus ? (
+          <div style={{ fontSize: 30, textAlign: "center" }}>
+            Data Not Available
+          </div>
+        ) : (
+          <Row gutter={[16, 16]}>
+            {seasonClubs &&
+              seasonClubs.map((data, index) => (
+                <Col span={4} key={index}>
+                  <Skeleton loading={!data} active>
+                    <CustomCard data={data} />
+                  </Skeleton>
+                </Col>
+              ))}
+          </Row>
+        )}
         <h1>All Time Club</h1>
         <Table
           rowKey="name"

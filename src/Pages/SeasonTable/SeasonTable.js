@@ -31,6 +31,7 @@ const SeasonTable = () => {
   const [filterTeam, setFilterTeam] = useState("");
   const [asecendingSource, setAscendingSource] = useState([]);
   const [filterData, setFilterData] = useState([]);
+  const [errorStatus, setErrorStatus] = useState("");
 
   const columns = [
     {
@@ -131,9 +132,15 @@ const SeasonTable = () => {
           finalMatchesArr = [...finalMatchArr];
         }
         matches = [...finalMatchesArr];
+        setErrorStatus("");
         renderClubMatches(clubs, matches);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error.response.status === 404) {
+          console.clear();
+          setErrorStatus("Not Found");
+        }
+      });
   };
 
   const renderClubMatches = (clubs, matches) => {
@@ -316,55 +323,66 @@ const SeasonTable = () => {
   return (
     <div>
       <Navigation page="table" />
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: `10px 30px 10px 30px` }}>
         <h1>Season {season}</h1>
         <div style={{ display: "flex", alignItems: "center" }}>
           <div style={{ marginRight: 20 }}>
             <SeasonSelect seasonValue={season} setSeason={handleSeason} />
           </div>
-          <div style={{ marginRight: 20 }}>
-            <div
-              style={{
-                fontSize: 16,
-                fontWeight: "bold",
-                fontFamily: "Gilroy",
-              }}
-            >
-              Sorting By Points
+          {!errorStatus && (
+            <div style={{ marginRight: 20 }}>
+              <div
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  fontFamily: "Gilroy",
+                }}
+              >
+                Sorting By Points
+              </div>
+              <CustomSelect
+                value={pointsOrder}
+                options={[{ name: "Ascending" }, { name: "Descending" }]}
+                setData={handleOrderPoints}
+                placeholder="Select Match Day"
+                style={{ width: 250 }}
+              />
             </div>
-            <CustomSelect
-              value={pointsOrder}
-              options={[{ name: "Ascending" }, { name: "Descending" }]}
-              setData={handleOrderPoints}
-              placeholder="Select Match Day"
-              style={{ width: 250 }}
-            />
-          </div>
-          <div>
-            <div
-              style={{
-                fontSize: 16,
-                fontWeight: "bold",
-                fontFamily: "Gilroy",
-              }}
-            >
-              Search By Team Name
+          )}
+
+          {!errorStatus && (
+            <div>
+              <div
+                style={{
+                  fontSize: 16,
+                  fontWeight: "bold",
+                  fontFamily: "Gilroy",
+                }}
+              >
+                Search By Team Name
+              </div>
+              <StyledInput
+                name="filterTeam"
+                value={filterTeam}
+                placeholder="Enter Team Name"
+                onChange={handleFilterTeam}
+              />
             </div>
-            <StyledInput
-              name="filterTeam"
-              value={filterTeam}
-              placeholder="Enter Team Name"
-              onChange={handleFilterTeam}
-            />
-          </div>
+          )}
         </div>
-        <CustomTable
-          columns={columns}
-          dataSource={filterData}
-          pointsOrder={pointsOrder}
-          completeMatches={completeMatches}
-          filterTeam={filterTeam}
-        />
+        {errorStatus ? (
+          <div style={{ fontSize: 30, textAlign: "center" }}>
+            Data Not Available
+          </div>
+        ) : (
+          <CustomTable
+            columns={columns}
+            dataSource={filterData}
+            pointsOrder={pointsOrder}
+            completeMatches={completeMatches}
+            filterTeam={filterTeam}
+          />
+        )}
       </div>
     </div>
   );

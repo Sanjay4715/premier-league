@@ -54,7 +54,7 @@ import WolverhamptonWanderers from "../Logo/WolverhamptonWanderers.svg";
 export const clubs = [
   {
     name: "Arsenal",
-    logo: <img src={Arsenal} alt="Arsenal" style={{ width: 50, height: 50 }} />,
+    logo: <img src={Arsenal} alt="Arsenal" style={{ width: 60, height: 60 }} />,
     siteUrl: "https://www.arsenal.com",
     stadium: "Emirates Stadium",
     clubColor: "#bd0c37",
@@ -66,7 +66,7 @@ export const clubs = [
       <img
         src={AstonVilla}
         alt="AstonVilla"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.avfc.co.uk",
@@ -77,7 +77,7 @@ export const clubs = [
   {
     name: "Barnsley",
     logo: (
-      <img src={Barnsley} alt="Barnsley" style={{ width: 50, height: 50 }} />
+      <img src={Barnsley} alt="Barnsley" style={{ width: 60, height: 60 }} />
     ),
     siteUrl: "https://www.barnsleyfcdirect.co.uk/",
     stadium: "Oakwell",
@@ -90,7 +90,7 @@ export const clubs = [
       <img
         src={BirminghamCity}
         alt="BirminghamCity"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.bluesonlinestore.co.uk/",
@@ -104,7 +104,7 @@ export const clubs = [
       <img
         src={BlackburnRovers}
         alt="BlackburnRovers"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "http://www.roverstore.co.uk/",
@@ -115,7 +115,7 @@ export const clubs = [
   {
     name: "Blackpool",
     logo: (
-      <img src={Blackpool} alt="Blackpool" style={{ width: 50, height: 50 }} />
+      <img src={Blackpool} alt="Blackpool" style={{ width: 60, height: 60 }} />
     ),
     siteUrl: "http://shop.blackpoolfc.co.uk/",
     stadium: "Bloomfield Road",
@@ -128,7 +128,7 @@ export const clubs = [
       <img
         src={BoltonWanderers}
         alt="BoltonWanderers"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "http://www.bwfcdirect.co.uk/",
@@ -142,7 +142,7 @@ export const clubs = [
       <img
         src={AfcBournemouth}
         alt="AfcBournemouth"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.afcb.co.uk/",
@@ -156,7 +156,7 @@ export const clubs = [
       <img
         src={BradfordCity}
         alt="BradfordCity"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "http://bantams.clubstore.co.uk/",
@@ -167,7 +167,7 @@ export const clubs = [
   {
     name: "Brentford",
     logo: (
-      <img src={Brentford} alt="Brentford" style={{ width: 50, height: 50 }} />
+      <img src={Brentford} alt="Brentford" style={{ width: 60, height: 60 }} />
     ),
     siteUrl: "https://www.brentfordfc.com",
     stadium: "Brentford Community Stadium",
@@ -180,7 +180,7 @@ export const clubs = [
       <img
         src={BrightonHoveAlbion}
         alt="BrightonHoveAlbion"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.brightonandhovealbion.com",
@@ -190,7 +190,7 @@ export const clubs = [
   },
   {
     name: "Burnley",
-    logo: <img src={Burnley} alt="Burnley" style={{ width: 50, height: 50 }} />,
+    logo: <img src={Burnley} alt="Burnley" style={{ width: 60, height: 60 }} />,
     siteUrl: "https://www.burnleyfootballclub.com",
     stadium: "Turf Moor",
     clubColor: "#8dd3f5",
@@ -202,7 +202,7 @@ export const clubs = [
       <img
         src={CardiffCity}
         alt="CardiffCity"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.cardiffcityfc.co.uk",
@@ -216,7 +216,7 @@ export const clubs = [
       <img
         src={CharltonAthletic}
         alt="CharltonAthletic"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "http://addicks.clubstore.co.uk/",
@@ -226,7 +226,7 @@ export const clubs = [
   },
   {
     name: "Chelsea",
-    logo: <img src={Chelsea} alt="Chelsea" style={{ width: 50, height: 50 }} />,
+    logo: <img src={Chelsea} alt="Chelsea" style={{ width: 60, height: 60 }} />,
     siteUrl: "https://www.chelseafc.com/",
     stadium: "Stamford Bridge",
     clubColor: "#173d86",
@@ -238,7 +238,7 @@ export const clubs = [
       <img
         src={CoventryCity}
         alt="CoventryCity"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -252,7 +252,7 @@ export const clubs = [
       <img
         src={CrystalPalace}
         alt="CrystalPalace"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.cpfc.co.uk",
@@ -266,7 +266,7 @@ export const clubs = [
       <img
         src={DerbyCounty}
         alt="DerbyCounty"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "http://www.dcfcmegastore.co.uk/",
@@ -276,7 +276,7 @@ export const clubs = [
   },
   {
     name: "Everton",
-    logo: <img src={Everton} alt="Everton" style={{ width: 50, height: 50 }} />,
+    logo: <img src={Everton} alt="Everton" style={{ width: 60, height: 60 }} />,
     siteUrl: "http://www.evertonfc.com/",
     stadium: "Goodison Park",
     clubColor: "#024593",
@@ -284,7 +284,7 @@ export const clubs = [
   },
   {
     name: "Fulham",
-    logo: <img src={Fulham} alt="Fulham" style={{ width: 50, height: 50 }} />,
+    logo: <img src={Fulham} alt="Fulham" style={{ width: 60, height: 60 }} />,
     siteUrl: "http://www.fulhamfc.com/",
     stadium: "Craven Cottage",
     clubColor: "#a23e38",
@@ -296,7 +296,7 @@ export const clubs = [
       <img
         src={HuddersfieldTown}
         alt="HuddersfieldTown"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "http://www.ftafc.com/",
@@ -307,7 +307,7 @@ export const clubs = [
   {
     name: "Hull City AFC",
     logo: (
-      <img src={HullCity} alt="HullCity" style={{ width: 50, height: 50 }} />
+      <img src={HullCity} alt="HullCity" style={{ width: 60, height: 60 }} />
     ),
     siteUrl: "http://www.hullcitytigers.com/",
     stadium: "KCOM Stadium",
@@ -320,7 +320,7 @@ export const clubs = [
       <img
         src={IpswichTown}
         alt="IpswichTown"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -334,7 +334,7 @@ export const clubs = [
       <img
         src={LeedsUnited}
         alt="LeedsUnited"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.leedsunited.com",
@@ -348,7 +348,7 @@ export const clubs = [
       <img
         src={LeicesterCity}
         alt="LeicesterCity"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.lcfc.com",
@@ -359,7 +359,7 @@ export const clubs = [
   {
     name: "Liverpool",
     logo: (
-      <img src={Liverpool} alt="Liverpool" style={{ width: 50, height: 50 }} />
+      <img src={Liverpool} alt="Liverpool" style={{ width: 60, height: 60 }} />
     ),
     siteUrl: "https://www.liverpoolfc.com",
     stadium: "Anfield",
@@ -372,7 +372,7 @@ export const clubs = [
       <img
         src={ManchesterCity}
         alt="ManchesterCity"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.mancity.com",
@@ -386,7 +386,7 @@ export const clubs = [
       <img
         src={ManchesterUnited}
         alt="ManchesterUnited"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.manutd.com",
@@ -400,7 +400,7 @@ export const clubs = [
       <img
         src={Middlesbrough}
         alt="Middlesbrough"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.mfc.co.uk",
@@ -414,7 +414,7 @@ export const clubs = [
       <img
         src={NewcastleUnited}
         alt="NewcastleUnited"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.nufc.co.uk",
@@ -428,7 +428,7 @@ export const clubs = [
       <img
         src={NorwichCity}
         alt="NorwichCity"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.canaries.co.uk",
@@ -442,7 +442,7 @@ export const clubs = [
       <img
         src={NottinghamForest}
         alt="NottinghamForest"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -456,7 +456,7 @@ export const clubs = [
       <img
         src={OldhamAthletic}
         alt="OldhamAthletic"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -470,7 +470,7 @@ export const clubs = [
       <img
         src={Portsmouth}
         alt="Portsmouth"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -484,7 +484,7 @@ export const clubs = [
       <img
         src={QueensParkRangers}
         alt="QueensParkRangers"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -494,7 +494,7 @@ export const clubs = [
   },
   {
     name: "Reading",
-    logo: <img src={Reading} alt="Reading" style={{ width: 50, height: 50 }} />,
+    logo: <img src={Reading} alt="Reading" style={{ width: 60, height: 60 }} />,
     siteUrl: "",
     stadium: "Madejski Stadium",
     clubColor: "#82c28",
@@ -506,7 +506,7 @@ export const clubs = [
       <img
         src={SheffieldUnited}
         alt="SheffieldUnited"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www/sufc.co.uk",
@@ -520,7 +520,7 @@ export const clubs = [
       <img
         src={SheffieldWednesday}
         alt="SheffieldWednesday"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -534,7 +534,7 @@ export const clubs = [
       <img
         src={Southampton}
         alt="Southampton"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.southamptonfc.com",
@@ -545,7 +545,7 @@ export const clubs = [
   {
     name: "Stoke City",
     logo: (
-      <img src={StokeCity} alt="StokeCity" style={{ width: 50, height: 50 }} />
+      <img src={StokeCity} alt="StokeCity" style={{ width: 60, height: 60 }} />
     ),
     siteUrl: "https://www.stokecityfc.com",
     stadium: "bet365 Stadium",
@@ -558,7 +558,7 @@ export const clubs = [
       <img
         src={Sunderland}
         alt="Sunderland"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.safc.com",
@@ -572,7 +572,7 @@ export const clubs = [
       <img
         src={SwanseaCity}
         alt="Southampton"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.swanseacity.com",
@@ -586,7 +586,7 @@ export const clubs = [
       <img
         src={SwindonTown}
         alt="SwindonTown"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -600,7 +600,7 @@ export const clubs = [
       <img
         src={TottenhamHotspur}
         alt="TottenhamHotspur"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.tottenhamhotspur.com",
@@ -610,7 +610,7 @@ export const clubs = [
   },
   {
     name: "Watford",
-    logo: <img src={Watford} alt="Watford" style={{ width: 50, height: 50 }} />,
+    logo: <img src={Watford} alt="Watford" style={{ width: 60, height: 60 }} />,
     siteUrl: "https://www.watfordfc.com",
     stadium: "Vicarage Road",
     clubColor: "#ffea00",
@@ -622,7 +622,7 @@ export const clubs = [
       <img
         src={WestBromwichAlbion}
         alt="WestBromwichAlbion"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.wba.co.uk",
@@ -636,7 +636,7 @@ export const clubs = [
       <img
         src={WestHamUnited}
         alt="WestHamUnited"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.whufc.com",
@@ -650,7 +650,7 @@ export const clubs = [
       <img
         src={WiganAthletic}
         alt="WiganAthletic"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "",
@@ -661,7 +661,7 @@ export const clubs = [
   {
     name: "Wimbledon",
     logo: (
-      <img src={Wimbledon} alt="Wimbledon" style={{ width: 50, height: 50 }} />
+      <img src={Wimbledon} alt="Wimbledon" style={{ width: 60, height: 60 }} />
     ),
     siteUrl: "",
     stadium: "Selhurst Park",
@@ -674,7 +674,7 @@ export const clubs = [
       <img
         src={WolverhamptonWanderers}
         alt="WolverhamptonWanderers"
-        style={{ width: 50, height: 50 }}
+        style={{ width: 60, height: 60 }}
       />
     ),
     siteUrl: "https://www.wolves.co.uk",
