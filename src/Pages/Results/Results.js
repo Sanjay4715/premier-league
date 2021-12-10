@@ -6,19 +6,25 @@ import { Select } from "antd";
 import Navigation from "../../Component/Navigation/Navigation";
 import CustomSelect from "../../Component/CustomSelect/CustomSelect";
 import ScoreResult from "./ScoreResult";
-
-const { Option } = Select;
+import SeasonSelect from "../../Component/SeasonSelect/SeasonSelect";
 
 const Home = () => {
+  const year = new Date().getFullYear();
+  const [season, setSeason] = useState(
+    year - 1 + "-" + year.toString().slice(-2)
+  );
   const [matches, setMatches] = useState([]);
   const [matchDay, setMatchDay] = useState();
   const [filterMatches, setFilterMatches] = useState([]);
 
   useEffect(() => {
-    console.log(localStorage.getItem("season"));
+    getMatches(season);
+  }, [season]);
+
+  const getMatches = (season) => {
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/${season}/en.1.json`
       )
       .then((res) => {
         let resultData = [];
@@ -60,17 +66,24 @@ const Home = () => {
         );
       })
       .catch((error) => console.log(error));
-  }, []);
+  };
 
   const handleMatchDay = (value) => {
     setMatchDay(value);
     setFilterMatches(matches.find((data) => data.name === value).matches);
   };
 
+  const handleSeason = (value) => {
+    setSeason(value);
+    getMatches(value);
+  };
+
   return (
     <div>
       <Navigation page="results" />
       <div style={{ padding: 20 }}>
+        <h1>Season {season}</h1>
+        <SeasonSelect seasonValue={season} setSeason={handleSeason} />
         <div style={{ display: "flex", alignItems: "center" }}>
           <div
             style={{ fontSize: 18, fontFamily: "Gilroy-bold", marginRight: 10 }}

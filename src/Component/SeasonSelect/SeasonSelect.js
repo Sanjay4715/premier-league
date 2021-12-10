@@ -15,8 +15,7 @@ const CustomSelect = styled(Select)({
   },
 });
 
-const SeasonSelect = (props) => {
-  const [season, setSeason] = useState();
+const SeasonSelect = ({ seasonValue, setSeason }) => {
   const [years, setYears] = useState();
 
   useEffect(() => {
@@ -26,10 +25,11 @@ const SeasonSelect = (props) => {
       (val, index) =>
         year - index + "-" + (year - index + 1).toString().slice(-2)
     );
-    setSeason(year - 1 + "-" + year.toString().slice(-2));
+    setSeason(
+      !seasonValue ? year - 1 + "-" + year.toString().slice(-2) : seasonValue
+    );
     setYears(years);
-    localStorage.setItem("season", year - 1 + "-" + year.toString().slice(-2));
-  }, [season]);
+  }, [seasonValue]);
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
@@ -45,7 +45,7 @@ const SeasonSelect = (props) => {
       </div>
       <CustomSelect
         placeholder="Select Season"
-        value={season}
+        value={seasonValue}
         onChange={(value) => setSeason(value)}
         dropdownClassName="optionStyle"
       >

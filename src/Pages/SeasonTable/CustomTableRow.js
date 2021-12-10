@@ -74,14 +74,16 @@ const CustomTableRow = ({
           (pointsOrder === "Descending"
             ? index < 4
               ? "#6fb76f"
-              : index > dataSource.length - 4 && "#ff6666"
+              : index > dataSource && dataSource.length - 4 && "#ff6666"
             : index < 3
             ? "#ff6666"
-            : index > dataSource.length - 5 && "#6fb76f"),
+            : index > dataSource && dataSource.length - 5 && "#6fb76f"),
       }}
     >
       <StyledColumnData>
-        {pointsOrder === "Descending" ? index + 1 : dataSource.length - index}
+        {pointsOrder === "Descending"
+          ? index + 1
+          : dataSource && dataSource.length - index}
       </StyledColumnData>
       <StyledColumnData
         style={{
@@ -92,18 +94,18 @@ const CustomTableRow = ({
         onClick={showModal}
       >
         <div style={{ marginLeft: 50, marginRight: 10 }}>
-          {getClubDetails(data.name).logo}
+          {getClubDetails(data && data.name).logo}
         </div>
-        <div>{data.name}</div>
+        <div>{data && data.name}</div>
       </StyledColumnData>
-      <StyledColumnData>{data.matchPlayed}</StyledColumnData>
-      <StyledColumnData>{data.points}</StyledColumnData>
-      <StyledColumnData>{data.won}</StyledColumnData>
-      <StyledColumnData>{data.lost}</StyledColumnData>
-      <StyledColumnData>{data.drawn}</StyledColumnData>
-      <StyledColumnData>{data.gf}</StyledColumnData>
-      <StyledColumnData>{data.ga}</StyledColumnData>
-      <StyledColumnData>{data.gd}</StyledColumnData>
+      <StyledColumnData>{data && data.matchPlayed}</StyledColumnData>
+      <StyledColumnData>{data && data.points}</StyledColumnData>
+      <StyledColumnData>{data && data.won}</StyledColumnData>
+      <StyledColumnData>{data && data.lost}</StyledColumnData>
+      <StyledColumnData>{data && data.drawn}</StyledColumnData>
+      <StyledColumnData>{data && data.gf}</StyledColumnData>
+      <StyledColumnData>{data && data.ga}</StyledColumnData>
+      <StyledColumnData>{data && data.gd}</StyledColumnData>
       <StyledColumnData
         style={{
           display: "flex",
@@ -111,30 +113,29 @@ const CustomTableRow = ({
           justifyContent: "center",
         }}
       >
-        {data.form.map((form, index) =>
-          form === "Win" ? (
-            <StyledForm className="win" key={index}>
-              W
-            </StyledForm>
-          ) : form === "Lose" ? (
-            <StyledForm className="lose" key={index}>
-              L
-            </StyledForm>
-          ) : (
-            <StyledForm className="draw" key={index}>
-              D
-            </StyledForm>
-          )
-        )}
+        {data &&
+          data.form.map((form, index) =>
+            form === "Win" ? (
+              <StyledForm className="win" key={index}>
+                W
+              </StyledForm>
+            ) : form === "Lose" ? (
+              <StyledForm className="lose" key={index}>
+                L
+              </StyledForm>
+            ) : (
+              <StyledForm className="draw" key={index}>
+                D
+              </StyledForm>
+            )
+          )}
       </StyledColumnData>
       <ClubModal
         isModalVisible={isModalVisible}
         handleOk={handleOk}
         handleCancel={handleCancel}
         clubDetails={getClubDetails(data.name)}
-        matchDetails={
-          completeMatches.find((club) => club.name === data.name).totalMatches
-        }
+        matchDetails={completeMatches.find((club) => club.name === data.name)}
       />
     </StyledRow>
   );

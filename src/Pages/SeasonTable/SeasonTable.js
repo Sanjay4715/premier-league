@@ -7,6 +7,7 @@ import styled from "@emotion/styled";
 import CustomSelect from "../../Component/CustomSelect/CustomSelect";
 import CustomTable from "./CustomTable";
 import Navigation from "../../Component/Navigation/Navigation";
+import SeasonSelect from "../../Component/SeasonSelect/SeasonSelect";
 
 const StyledInput = styled(Input)({
   width: 300,
@@ -20,6 +21,10 @@ const StyledInput = styled(Input)({
 });
 
 const SeasonTable = () => {
+  const year = new Date().getFullYear();
+  const [season, setSeason] = useState(
+    year - 1 + "-" + year.toString().slice(-2)
+  );
   const [completeMatches, setCompleteMatches] = useState([]);
   const [dataSource, setDataSource] = useState([]);
   const [pointsOrder, setPointsOrder] = useState("Descending");
@@ -75,13 +80,15 @@ const SeasonTable = () => {
   ];
 
   useEffect(() => {
+    getTableMatches(season);
+  }, [season]);
+
+  const getTableMatches = (season) => {
     let clubs = [];
     let matches = [];
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/${localStorage.getItem(
-          "season"
-        )}/en.1.clubs.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/${season}/en.1.clubs.json`
       )
       .then((res) => {
         clubs = [...res.data.clubs];
@@ -89,7 +96,7 @@ const SeasonTable = () => {
       .catch((error) => console.log(error));
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/2020-21/en.1.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/${season}/en.1.json`
       )
       .then((res) => {
         let finalMatchesArr = [];
@@ -127,11 +134,10 @@ const SeasonTable = () => {
         renderClubMatches(clubs, matches);
       })
       .catch((error) => console.log(error));
-  }, []);
+  };
 
   const renderClubMatches = (clubs, matches) => {
     let finalArr = [];
-    console.log(matches);
     for (let i = 0; i < clubs.length; i++) {
       let tempObj = { name: clubs[i].name, code: clubs[i].code };
       let totalMatches = [];
@@ -159,12 +165,11 @@ const SeasonTable = () => {
   };
 
   const calculateStat = (clubs) => {
-    console.log(clubs, "clubs");
     let dataArr = [];
     for (let i = 0; i < clubs.length; i++) {
-      let playedMatches = clubs[i].totalMatches.filter(
-        (data) => data.score !== "To Be Played"
-      );
+      let playedMatches =
+        clubs[i].totalMatches &&
+        clubs[i].totalMatches.filter((data) => data.score !== "To Be Played");
       let dataObj = {
         name: clubs[i].name,
         code: clubs[i].code,
@@ -303,11 +308,20 @@ const SeasonTable = () => {
     );
   };
 
+  const handleSeason = (value) => {
+    setSeason(value);
+    getTableMatches(value);
+  };
+
   return (
     <div>
       <Navigation page="table" />
       <div style={{ padding: 20 }}>
+        <h1>Season {season}</h1>
         <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ marginRight: 20 }}>
+            <SeasonSelect seasonValue={season} setSeason={handleSeason} />
+          </div>
           <div style={{ marginRight: 20 }}>
             <div style={{ marginRight: 10 }}>Sorting By Points</div>
             <CustomSelect
@@ -328,7 +342,6 @@ const SeasonTable = () => {
             />
           </div>
         </div>
-
         <CustomTable
           columns={columns}
           dataSource={filterData}

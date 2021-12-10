@@ -7,6 +7,7 @@ import { clubs } from "../../Assets/Data/clubs";
 import Stadium from "../../Assets/Logo/stadium.png";
 import Link from "../../Assets/Logo/Link.png";
 import CustomCard from "../../Component/CustomCard/CustomCard";
+import SeasonSelect from "../../Component/SeasonSelect/SeasonSelect";
 
 const columns = [
   {
@@ -60,18 +61,22 @@ const columns = [
 ];
 
 const Home = () => {
-  const [seasonName, setSeasonName] = useState();
+  const year = new Date().getFullYear();
+  const [season, setSeason] = useState(
+    year - 1 + "-" + year.toString().slice(-2)
+  );
   const [seasonClubs, setSeasonClubs] = useState();
 
   useEffect(() => {
+    getClubs(season);
+  }, []);
+
+  const getClubs = (season) => {
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/${localStorage.getItem(
-          "season"
-        )}/en.1.clubs.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/${season}/en.1.clubs.json`
       )
       .then((res) => {
-        console.log(res.data);
         const result = clubs.filter((data) =>
           res.data.clubs.some(
             (data2) => data.name === data2.name.replace(" FC", "")
@@ -80,12 +85,19 @@ const Home = () => {
         setSeasonClubs(result);
       })
       .catch((error) => console.log(error));
-  }, []);
+  };
+
+  const handleSeason = (value) => {
+    setSeason(value);
+    getClubs(value);
+  };
+
   return (
     <div>
       <Navigation page="home" />
       <div style={{ padding: 10 }}>
-        <h1>Season {localStorage.getItem("season")}</h1>
+        <h1>Season {season}</h1>
+        <SeasonSelect seasonValue={season} setSeason={handleSeason} />
         <Row gutter={[16, 16]}>
           {seasonClubs &&
             seasonClubs.map((data, index) => (

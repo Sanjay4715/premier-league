@@ -38,7 +38,7 @@ const CustomTable = ({
         </StyledRow>
       </thead>
       <tbody>
-        {dataSource.length !== 0 &&
+        {dataSource &&
           dataSource.map((data, index) => (
             <CustomTableRow
               key={index}

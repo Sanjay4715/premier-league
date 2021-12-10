@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import { Layout } from "antd";
 import CustomMenuItem from "./CustomMenuItem";
 import PLogo from "../../Assets/Logo/pl2.png";
-import SeasonSelect from "./SeasonSelect";
 
 const { Header } = Layout;
 
@@ -31,9 +30,6 @@ const Navigation = (props) => {
     },
   ];
 
-  const [activeUrl, setActiveUrl] = useState(false);
-  const [urlArr, setUrlArr] = useState();
-
   return (
     <Layout>
       <StyledHeader>
@@ -48,7 +44,6 @@ const Navigation = (props) => {
             />
           ))}
         </div>
-        <SeasonSelect />
       </StyledHeader>
     </Layout>
   );
