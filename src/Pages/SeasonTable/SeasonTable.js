@@ -79,7 +79,7 @@ const SeasonTable = () => {
     let matches = [];
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.clubs.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/2018-19/en.1.clubs.json`
       )
       .then((res) => {
         clubs = [...res.data.clubs];
@@ -87,10 +87,41 @@ const SeasonTable = () => {
       .catch((error) => console.log(error));
     axios
       .get(
-        `https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json`
+        `https://raw.githubusercontent.com/openfootball/football.json/master/2018-19/en.1.json`
       )
       .then((res) => {
-        matches = [...res.data.rounds];
+        let finalMatchesArr = [];
+        if (res.data.rounds) {
+          finalMatchesArr = [...res.data.rounds];
+        }
+        if (res.data.matches) {
+          const uniqueMatchday = [];
+          res.data.matches.filter((match) => {
+            const isDuplicate = uniqueMatchday.includes(match.round);
+            if (!isDuplicate) {
+              uniqueMatchday.push(match.round);
+              return true;
+            }
+          });
+          let finalMatchArr = [];
+          for (let i = 0; i < uniqueMatchday.length; i++) {
+            let matches = [];
+            for (let j = 0; j < res.data.matches.length; j++) {
+              if (uniqueMatchday[i] === res.data.matches[j].round) {
+                let matchesObj = {
+                  date: res.data.matches[j].date,
+                  team1: res.data.matches[j].team1,
+                  team2: res.data.matches[j].team2,
+                  score: res.data.matches[j].score,
+                };
+                matches.push(matchesObj);
+              }
+            }
+            finalMatchArr.push({ name: uniqueMatchday[i], matches });
+          }
+          finalMatchesArr = [...finalMatchArr];
+        }
+        matches = [...finalMatchesArr];
         renderClubMatches(clubs, matches);
       })
       .catch((error) => console.log(error));
